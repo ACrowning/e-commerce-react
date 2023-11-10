@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Mock({ product }) {
+export default function Items({ product }) {
   return (
     <li>
       {product.id}, {product.title}, {product.description}, {product.price},
