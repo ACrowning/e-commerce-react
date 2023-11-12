@@ -10,20 +10,20 @@ function App() {
   const [inputCount, setInputCount] = useState("");
 
   const addItem = () => {
+    const newProduct = {
+      id: `${products.length + 1}`,
+      title: inputTitle,
+      description: inputDescription,
+      price: inputPrice,
+      favorite: false,
+      count: inputCount,
+    };
+
     setProducts([...products, newProduct]);
     setInputTitle("");
     setInputDescription("");
     setInputPrice("");
     setInputCount("");
-  };
-
-  const newProduct = {
-    id: `${products.length + 1}`,
-    title: inputTitle,
-    description: inputDescription,
-    price: inputPrice,
-    favorite: false,
-    count: inputCount,
   };
 
   return (
