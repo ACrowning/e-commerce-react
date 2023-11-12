@@ -5,18 +5,25 @@ import MockProducts from "./e-commerce/mock";
 function App() {
   const [products, setProducts] = useState(MockProducts);
   const [inputTitle, setInputTitle] = useState("");
+  const [inputDescription, setInputDescription] = useState("");
+  const [inputPrice, setInputPrice] = useState("");
+  const [inputCount, setInputCount] = useState("");
 
   const addItem = () => {
     setProducts([...products, newProduct]);
+    setInputTitle("");
+    setInputDescription("");
+    setInputPrice("");
+    setInputCount("");
   };
 
   const newProduct = {
     id: `${products.length + 1}`,
     title: inputTitle,
-    description: 1,
-    price: 1,
+    description: inputDescription,
+    price: inputPrice,
     favorite: false,
-    count: 1,
+    count: inputCount,
   };
 
   return (
@@ -24,6 +31,7 @@ function App() {
       <div>
         <div>
           <input
+            value={inputTitle}
             onChange={(event) => setInputTitle(event.target.value)}
             type="text"
             placeholder="Enter the title"
@@ -31,21 +39,24 @@ function App() {
         </div>
         <div>
           <input
-            className="inputDescription"
+            value={inputDescription}
+            onChange={(event) => setInputDescription(event.target.value)}
             type="text"
             placeholder="Enter the description"
           />
         </div>
         <div>
           <input
-            className="inputPrice"
+            value={inputPrice}
+            onChange={(event) => setInputPrice(event.target.value)}
             type="number"
             placeholder="Enter the price"
           />
         </div>
         <div>
           <input
-            className="inputCount"
+            value={inputCount}
+            onChange={(event) => setInputCount(event.target.value)}
             type="number"
             placeholder="Enter the count"
           />
