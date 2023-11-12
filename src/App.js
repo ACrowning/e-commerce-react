@@ -4,6 +4,7 @@ import MockProducts from "./e-commerce/mock";
 
 function App() {
   const [products, setProducts] = useState(MockProducts);
+  const [inputTitle, setInputTitle] = useState("");
 
   const addItem = () => {
     setProducts([...products, newProduct]);
@@ -11,7 +12,7 @@ function App() {
 
   const newProduct = {
     id: `${products.length + 1}`,
-    title: 1,
+    title: inputTitle,
     description: 1,
     price: 1,
     favorite: false,
@@ -23,7 +24,7 @@ function App() {
       <div>
         <div>
           <input
-            className="inputTitle"
+            onChange={(event) => setInputTitle(event.target.value)}
             type="text"
             placeholder="Enter the title"
           />
@@ -54,7 +55,7 @@ function App() {
       <button onClick={addItem}>Add Item</button>
 
       <div>
-        <List products={MockProducts} />
+        <List products={products} />
       </div>
     </div>
   );
