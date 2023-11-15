@@ -1,5 +1,5 @@
 import { useState } from "react";
-import List from "./e-commerce/list";
+import Items from "./e-commerce/items";
 import MockProducts from "./e-commerce/mock";
 
 function App() {
@@ -24,6 +24,14 @@ function App() {
     setInputDescription("");
     setInputPrice("");
     setInputCount("");
+  };
+
+  const deleteProduct = (itemsIndex) => {
+    const updatedProducts = [
+      ...products.slice(0, itemsIndex),
+      ...products.slice(itemsIndex + 1),
+    ];
+    setProducts(updatedProducts);
   };
 
   return (
@@ -66,7 +74,16 @@ function App() {
       <button onClick={addItem}>Add Item</button>
 
       <div>
-        <List products={products} />
+        <ul>
+          {products.map((product, productIndex) => (
+            <>
+              <Items product={product} key={product.id} />
+              <button onClick={() => deleteProduct(productIndex)}>
+                Delete
+              </button>
+            </>
+          ))}
+        </ul>
       </div>
     </div>
   );
