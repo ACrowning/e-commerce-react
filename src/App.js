@@ -34,9 +34,45 @@ function App() {
     setProducts(updatedProducts);
   };
 
+  const UlStyle = {
+    listStyle: "none",
+    display: "flex",
+    flexWrap: "wrap",
+  };
+
+  const navbar = {
+    display: "flex",
+    width: "auto",
+    height: "auto",
+    padding: "20px 25px",
+    marginRight: "none",
+    border: "1px solid black",
+    borderLeft: "none",
+    borderBottom: "none",
+    borderTop: "none",
+    boxSizing: "content-box",
+    flexDirection: "column",
+    gap: "15px",
+  };
+
+  const divProducts = {
+    display: "flex",
+    boxSizing: "content-box",
+  };
+
+  const productStyle = {
+    marginRight: "40px",
+  };
+
+  const containerStyle = {
+    display: "flex",
+    flexShrink: 2,
+    border: "1px solid black",
+  };
+
   return (
-    <div>
-      <div>
+    <div style={containerStyle}>
+      <div style={navbar}>
         <div>
           <input
             value={inputTitle}
@@ -69,19 +105,18 @@ function App() {
             placeholder="Enter the count"
           />
         </div>
+        <button onClick={addItem}>Add</button>
       </div>
 
-      <button onClick={addItem}>Add Item</button>
-
-      <div>
-        <ul>
+      <div style={divProducts}>
+        <ul style={UlStyle}>
           {products.map((product, productIndex) => (
-            <>
-              <Items product={product} key={product.id} />
+            <div style={productStyle} key={product.id}>
+              <Items product={product} />
               <button onClick={() => deleteProduct(productIndex)}>
                 Delete
               </button>
-            </>
+            </div>
           ))}
         </ul>
       </div>
