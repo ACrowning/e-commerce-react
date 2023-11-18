@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Items from "./e-commerce/items";
 import MockProducts from "./e-commerce/mock";
+import styles from "./e-commerce/styles.module.css";
 
 function App() {
   const [products, setProducts] = useState(MockProducts);
@@ -34,45 +35,9 @@ function App() {
     setProducts(updatedProducts);
   };
 
-  const UlStyle = {
-    listStyle: "none",
-    display: "flex",
-    flexWrap: "wrap",
-  };
-
-  const navbar = {
-    display: "flex",
-    width: "auto",
-    height: "auto",
-    padding: "20px 25px",
-    marginRight: "none",
-    border: "1px solid black",
-    borderLeft: "none",
-    borderBottom: "none",
-    borderTop: "none",
-    boxSizing: "content-box",
-    flexDirection: "column",
-    gap: "15px",
-  };
-
-  const divProducts = {
-    display: "flex",
-    boxSizing: "content-box",
-  };
-
-  const productStyle = {
-    marginRight: "40px",
-  };
-
-  const containerStyle = {
-    display: "flex",
-    flexShrink: 2,
-    border: "1px solid black",
-  };
-
   return (
-    <div style={containerStyle}>
-      <div style={navbar}>
+    <div className={styles.containerStyle}>
+      <div className={styles.navbar}>
         <div>
           <input
             value={inputTitle}
@@ -108,10 +73,10 @@ function App() {
         <button onClick={addItem}>Add</button>
       </div>
 
-      <div style={divProducts}>
-        <ul style={UlStyle}>
+      <div className={styles.divProducts}>
+        <ul className={styles.ulStyle}>
           {products.map((product, productIndex) => (
-            <div style={productStyle} key={product.id}>
+            <div className={styles.productStyle} key={product.id}>
               <Items product={product} />
               <button onClick={() => deleteProduct(productIndex)}>
                 Delete
