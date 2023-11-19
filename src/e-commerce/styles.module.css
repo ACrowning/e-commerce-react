@@ -1,0 +1,35 @@
+.ulStyle {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.navbar {
+  display: flex;
+  width: auto;
+  height: auto;
+  padding: 20px 25px;
+  margin-right: none;
+  border: 1px solid black;
+  border-left: none;
+  border-bottom: none;
+  border-top: none;
+  box-sizing: content-box;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.divProducts {
+  display: flex;
+  box-sizing: content-box;
+}
+
+.productStyle {
+  margin-right: 40px;
+}
+
+.containerStyle {
+  display: flex;
+  flex-shrink: 2;
+  border: 1px solid black;
+}

@@ -1,6 +1,7 @@
 import { useState } from "react";
-import List from "./e-commerce/list";
+import Items from "./e-commerce/items";
 import MockProducts from "./e-commerce/mock";
+import styles from "./e-commerce/styles.module.css";
 
 function App() {
   const [products, setProducts] = useState(MockProducts);
@@ -26,9 +27,17 @@ function App() {
     setInputCount("");
   };
 
+  const deleteProduct = (itemsIndex) => {
+    const updatedProducts = [
+      ...products.slice(0, itemsIndex),
+      ...products.slice(itemsIndex + 1),
+    ];
+    setProducts(updatedProducts);
+  };
+
   return (
-    <div>
-      <div>
+    <div className={styles.containerStyle}>
+      <div className={styles.navbar}>
         <div>
           <input
             value={inputTitle}
@@ -61,12 +70,20 @@ function App() {
             placeholder="Enter the count"
           />
         </div>
+        <button onClick={addItem}>Add</button>
       </div>
 
-      <button onClick={addItem}>Add Item</button>
-
-      <div>
-        <List products={products} />
+      <div className={styles.divProducts}>
+        <ul className={styles.ulStyle}>
+          {products.map((product, productIndex) => (
+            <div className={styles.productStyle} key={product.id}>
+              <Items product={product} />
+              <button onClick={() => deleteProduct(productIndex)}>
+                Delete
+              </button>
+            </div>
+          ))}
+        </ul>
       </div>
     </div>
   );

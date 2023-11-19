@@ -3,8 +3,10 @@ import React from "react";
 export default function Items({ product }) {
   return (
     <li>
-      {product.id}, {product.title}, {product.description}, {product.price},
-      {product.favorite}, {product.count}
+      <img src="https://picsum.photos/200/300?random" />
+      <div>
+        {product.title}, {product.description}, {product.price}
+      </div>
     </li>
   );
 }
