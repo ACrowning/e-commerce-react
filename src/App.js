@@ -37,6 +37,9 @@ function App() {
 
   return (
     <div className={styles.containerStyle}>
+      {/* Вынеси этот navbar в папку components. Все стили, связанные с этим компонентом, должны быть вынесены в отдельный файл */}
+      {/* Тут ты столкнёшься с проблемой: ты не сможешь добавить новый айтем в продукты, потому что все методы будут в новом компоненте */}
+      {/* Напиши мне, когда дойдёшь до этого */}
       <div className={styles.navbar}>
         <div>
           <input
@@ -75,6 +78,7 @@ function App() {
 
       <div className={styles.divProducts}>
         <ul className={styles.ulStyle}>
+          {/* Создай отдельный компонент Products, в котором будет лежать код с продуктами ниже */}
           {products.map((product, productIndex) => (
             <div className={styles.productStyle} key={product.id}>
               <Items product={product} />
