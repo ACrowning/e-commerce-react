@@ -1,0 +1,14 @@
+.ulStyle {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.divProducts {
+  display: flex;
+  box-sizing: content-box;
+}
+
+.productStyle {
+  margin-right: 40px;
+}
