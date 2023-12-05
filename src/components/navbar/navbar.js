@@ -1,25 +1,22 @@
 import React, { useState } from "react";
-import MockProducts from "../mock/mockProducts";
+
 import styles from "./navbar.module.css";
 
-export default function Navbar() {
-  const [products, setProducts] = useState(MockProducts);
+export default function Navbar({ addItem, products }) {
   const [inputTitle, setInputTitle] = useState("");
   const [inputDescription, setInputDescription] = useState("");
   const [inputPrice, setInputPrice] = useState("");
   const [inputCount, setInputCount] = useState("");
 
-  const addItem = () => {
+  const onAdd = () => {
     const newProduct = {
-      id: `${products.length + 1}`,
       title: inputTitle,
       description: inputDescription,
       price: inputPrice,
       favorite: false,
       count: inputCount,
     };
-
-    setProducts([...products, newProduct]);
+    addItem([...products, newProduct]);
     setInputTitle("");
     setInputDescription("");
     setInputPrice("");
@@ -59,7 +56,7 @@ export default function Navbar() {
           placeholder="Enter the count"
         />
       </div>
-      <button onClick={addItem}>Add</button>
+      <button onClick={onAdd}>Add</button>
     </div>
   );
 }
