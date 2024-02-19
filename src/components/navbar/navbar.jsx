@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-
 import styles from "./navbar.module.css";
 
-export default function Navbar({ addItem, products }) {
+export default function Navbar({ addItem }) {
   const [inputTitle, setInputTitle] = useState("");
   const [inputDescription, setInputDescription] = useState("");
   const [inputPrice, setInputPrice] = useState("");
@@ -16,7 +15,7 @@ export default function Navbar({ addItem, products }) {
       favorite: false,
       count: inputCount,
     };
-    addItem([...products, newProduct]);
+    addItem([newProduct]);
     setInputTitle("");
     setInputDescription("");
     setInputPrice("");
